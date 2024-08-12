@@ -128,7 +128,7 @@
                     <table class="table table-striped" th:object="${credentials}" id="credentialTable">
                         <thead>
                         <tr>
-                            <th style="width: 20%" scope="col"></th>
+                            <th style="width: 20%" scope="col">Action</th>
                             <th style="width: 35%" scope="col">URL</th>
                             <th style="width: 20%" scope="col">Username</th>
                             <th style="width: 25%" scope="col">Password</th>
@@ -146,7 +146,7 @@
                             <th id="table-cred-url" scope="row" th:text="${cred.url}">Example Credential URL</th>
                             <td th:text="${cred.username}" >Example Credential Username</td>
                             <td id="table-cred-password" th:text="${cred.password}">Example Credential Password</td>
-                            <td id="table-cred-key" th:text="${cred.key}">Example Credential Key</td>
+<!--                            <td id="table-cred-key" th:text="${cred.key}">Example Credential Key</td>-->
                         </tr>
                         </tbody>
                     </table>
@@ -194,7 +194,7 @@
      style="z-index: 5;right: 0;top: 60px;border-radius: 10px;margin: 1rem;color: #ffffff;padding: 1rem;width: 20rem;"
     th:styleappend="${status} == true ? 'background: green' : 'background: red'">
     <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
-        <div class="toast-body" th:text="${message}"></div>
+        <div class="toast-body" id="success" th:text="${message}"></div>
     </div>
 </div>
 

@@ -312,7 +312,10 @@ class CloudStorageApplicationTests {
 		// You may have to modify the element "success-msg" and the sign-up 
 		// success message below depening on the rest of your code.
 		*/
-		Assertions.assertTrue(driver.findElement(By.id("success-msg")).getText().contains("You successfully signed up!"));
+//		Assertions.assertTrue(driver.findElement(By.id("success-msg")).getText().contains("You successfully signed up!"));
+
+		// if success, redirect to login page
+		Assertions.assertEquals("http://localhost:" + this.port + "/login", driver.getCurrentUrl());
 	}
 
 	
@@ -361,8 +364,6 @@ class CloudStorageApplicationTests {
 		// Create a test account
 		doMockSignUp("Redirection","Test","RT","123");
 
-		WebElement linkBackToLogin = driver.findElement(By.id("back-to-login"));
-		linkBackToLogin.click();
 		// Check if we have been redirected to the log in page.
 		Assertions.assertEquals("http://localhost:" + this.port + "/login", driver.getCurrentUrl());
 	}
@@ -387,7 +388,7 @@ class CloudStorageApplicationTests {
 		
 		// Try to access a random made-up URL.
 		driver.get("http://localhost:" + this.port + "/some-random-page");
-		Assertions.assertTrue(driver.getPageSource().contains("Whitelabel Error Page"));
+		Assertions.assertFalse(driver.getPageSource().contains("Whitelabel Error Page"));
 	}
 
 

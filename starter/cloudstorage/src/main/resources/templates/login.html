@@ -33,5 +33,12 @@
                 <label><a id="signup-link" th:href="@{/signup}">Click here to sign up</a></label>
             </div>
         </div>
+        <div th:if="${message != null}" class="position-fixed"
+             style="z-index: 5;right: 0;top: 60px;border-radius: 10px;margin: 1rem;color: #ffffff;padding: 1rem;width: 20rem;"
+             th:styleappend="${status} == true ? 'background: green' : 'background: red'">
+            <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                <div class="toast-body" id="success" th:text="${message}"></div>
+            </div>
+        </div>
     </body>
 </html>
